@@ -2,15 +2,14 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
+set paste
+set ignorecase
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Yggdroot/indentLine'
-
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_autoclose_preview_window_after_insertion = 1
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
 
 Plugin 'scrooloose/syntastic'
 set statusline+=%#warningmsg#
@@ -46,7 +45,6 @@ call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 Plugin 'vim-airline/vim-airline'
-Plugin 'pangloss/vim-javascript'
 
 Plugin 'flazz/vim-colorschemes'
 syntax enable
@@ -72,14 +70,15 @@ let g:ctrlp_show_hidden = 1
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'itchyny/lightline.vim'
-Plugin 'easymotion/vim-easymotion'
+
 
 Plugin 'fatih/vim-go'
 let g:go_fmt_command = "gofmt"
 let g:go_fmt_command = "goimports"
 let g:go_def_mode = 'guru'
 
+set syntax=off
+set ft=text
 set conceallevel=0
 set backspace=2
 set number
@@ -89,9 +88,10 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smarttab
-set clipboard=unnamed
+set clipboard+=unnamed
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+map <F7> mzgg=G`z
 map <F7> mzgg=G`z
 
 fun! <SID>StripTrailingWhitespaces()
